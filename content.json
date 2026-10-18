@@ -1,0 +1,127 @@
+{
+  "settings": {
+    "phone": "+92 311 1123024",
+    "whatsapp": "923111123024",
+    "email": "",
+    "address": ""
+  },
+  "slides": [
+    {
+      "title": "Admissions are open",
+      "text": "Apply online for the upcoming session. Create a student account, fill in the form and track your application.",
+      "btn": "Apply now",
+      "link": "admission-portal.html"
+    },
+    {
+      "title": "Explore our programs",
+      "text": "Undergraduate and postgraduate degrees across technology and health sciences.",
+      "btn": "View courses",
+      "link": "courses.html"
+    },
+    {
+      "title": "Visit the campus",
+      "text": "See the labs, library and student spaces, then book a tour with our team.",
+      "btn": "Book a tour",
+      "link": "campus-tour.html"
+    }
+  ],
+  "courses": [
+    {
+      "dept": "Computing and Information Technology",
+      "name": "BS Computer Science",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Computing and Information Technology",
+      "name": "BS Software Engineering",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Computing and Information Technology",
+      "name": "BS Information Technology",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Computing and Information Technology",
+      "name": "MS Computer Science",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "dept": "Engineering",
+      "name": "BS Electrical Engineering",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Health Sciences",
+      "name": "BS Medical Laboratory Technology",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Health Sciences",
+      "name": "BS Public Health",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Health Sciences",
+      "name": "BS Nursing",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "dept": "Health Sciences",
+      "name": "Doctor of Physical Therapy",
+      "level": "Professional",
+      "duration": "5 years"
+    },
+    {
+      "dept": "Health Sciences",
+      "name": "MS Public Health",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    }
+  ],
+  "pages": {
+    "home": {
+      "title": "University of Technology Culture and Health Sciences",
+      "intro": "U-TECH brings technology, culture and health sciences together on one campus. Explore our programs, visit the campus and apply online.",
+      "body": "<div class=\"grid\"><div class=\"card\"><h3>Student enrollment</h3><p>See the steps, eligibility and documents you need before you apply.</p><a class=\"more\" href=\"enrollment.html\">Read the enrollment guide</a></div><div class=\"card\"><h3>Courses</h3><p>Undergraduate and postgraduate programs in technology and health sciences.</p><a class=\"more\" href=\"courses.html\">See all programs</a></div><div class=\"card\"><h3>Campus tour</h3><p>Walk through our academic blocks, labs and student spaces.</p><a class=\"more\" href=\"campus-tour.html\">Tour the campus</a></div><div class=\"card\"><h3>Online admission portal</h3><p>Fill in the application form from your phone or computer.</p><a class=\"more\" href=\"admission-portal.html\">Open the portal</a></div></div>"
+    },
+    "enrollment": {
+      "title": "Student enrollment",
+      "intro": "Everything you need to know before you apply.",
+      "body": "<div class=\"two\"><div><h2>How enrollment works</h2><ol class=\"steps\"><li><h3>Choose a program</h3><p>Compare programs on the courses page.</p></li><li><h3>Check eligibility</h3><p>Each program lists the qualification it requires.</p></li><li><h3>Create a student account</h3><p>Register once to track your applications.</p></li><li><h3>Apply online</h3><p>Complete the form in the admission portal, including guardian details.</p></li><li><h3>Submit documents</h3><p>The admissions office will contact you to collect scanned copies.</p></li><li><h3>Pay fees and confirm</h3><p>Your seat is confirmed once the first fee payment is received.</p></li></ol></div><div><h2>Documents to keep ready</h2><ul class=\"plain\"><li>National ID card or B-form</li><li>Previous academic transcripts and certificates</li><li>Recent passport-size photographs</li><li>Guardian ID copy</li></ul><p class=\"note\">Fee details and deadlines are confirmed by the admissions office.</p><p><a class=\"btn\" href=\"admission-portal.html\">Go to the admission portal</a></p></div></div>"
+    },
+    "courses": {
+      "title": "Courses",
+      "intro": "Programs offered at U-TECH.",
+      "body": ""
+    },
+    "campus": {
+      "title": "Campus tour",
+      "intro": "See where you will study.",
+      "body": "<div class=\"grid\"><div class=\"card\"><h3>Academic blocks</h3><p>Lecture halls and classrooms for every department.</p></div><div class=\"card\"><h3>Library and study areas</h3><p>Quiet reading space, group study rooms and digital resources.</p></div><div class=\"card\"><h3>Computer labs</h3><p>Networked labs for programming and IT coursework.</p></div><div class=\"card\"><h3>Engineering workshops</h3><p>Hands-on space for practical work.</p></div><div class=\"card\"><h3>Health sciences labs</h3><p>Laboratories and skills rooms for clinical training.</p></div><div class=\"card\"><h3>Student spaces</h3><p>Cafeteria, common areas and sports grounds.</p></div></div>"
+    },
+    "admission": {
+      "title": "Online admission portal",
+      "intro": "Apply to U-TECH in a few minutes.",
+      "body": "<p class=\"note\">Fields marked required must be completed. Keep your academic documents ready, as the admissions office will ask for scanned copies.</p>"
+    },
+    "contact": {
+      "title": "Contact us",
+      "intro": "Questions about admissions, programs or visits.",
+      "body": ""
+    },
+    "feedback": {
+      "title": "Feedback",
+      "intro": "Tell us about your experience. We read every message.",
+      "body": ""
+    }
+  }
+}

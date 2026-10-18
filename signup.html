@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Account | U-TECH</title>
+<meta name="description" content="U-TECH, University of Technology Culture and Health Sciences.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="signup">
+<div id="hdr"></div>
+<main>
+<div class="page-head"><div class="wrap"><h1>Create an account</h1><p>Students and teachers register here. Choose your own username and password.</p></div></div><section><div class="wrap"><form data-form="signup" data-api="/api/signup"><label for="role">Account type</label><select id="role" name="role" required><option value="student">Student</option><option value="teacher">Teacher</option></select><label for="name">Full name</label><input id="name" name="name" required autocomplete="name"><label for="username">Username</label><input id="username" name="username" required minlength="3" maxlength="40" autocomplete="username" autocapitalize="none"><label for="password">Password (at least 8 characters)</label><input id="password" name="password" type="password" required minlength="8" autocomplete="new-password"><label for="password2">Confirm password</label><input id="password2" name="password2" type="password" required minlength="8" autocomplete="new-password"><button class="btn" type="submit">Create account</button><p class="msg" role="status"></p></form><p>Already registered? <a href="login.html">Log in</a>.</p></div></section>
+</main>
+<div id="ftr"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Tour | U-TECH</title>
+<meta name="description" content="U-TECH, University of Technology Culture and Health Sciences.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="campus">
+<div id="hdr"></div>
+<main>
+<div class="page-head"><div class="wrap"><h1 id="pt"></h1><p id="pi"></p></div></div><section><div class="wrap"><div id="cms"></div></div></section><section style="background:#f3f5f9"><div class="wrap"><h2>Book a campus visit</h2><p>Tell us when you would like to come and we will confirm a time.</p><form data-form="tour" data-ok="Request received. We will contact you to confirm a time."><div class="row"><div><label for="name">Full name</label><input id="name" name="name" type="text" required autocomplete="name"></div><div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div></div><div class="row"><div><label for="date">Preferred date</label><input id="date" name="date" type="date" required></div><div><label for="visitors">Number of visitors</label><input id="visitors" name="visitors" type="number" required min="1" max="50" value="1"></div></div><button class="btn" type="submit">Request a visit</button><p class="msg" role="status"></p></form></div></section>
+</main>
+<div id="ftr"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Panel | U-TECH</title>
+<meta name="description" content="U-TECH, University of Technology Culture and Health Sciences.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+<div id="hdr"></div>
+<main>
+<div class="page-head"><div class="wrap"><h1>Admin panel</h1><p>Edit the website, read messages and manage accounts. Changes go live when you press Save.</p></div></div><section><div class="wrap"><div class="tabs" id="tabs"></div><div id="view"></div><p class="msg" id="amsg" role="status"></p></div></section><script>window.onSite=function(C,U){
+if(!U||U.role!=='admin'){location.href='login.html';return}
+var T=document.getElementById('tabs'),V=document.getElementById('view'),M=document.getElementById('amsg');
+function say(t,ok){M.textContent=t;M.className='msg '+(ok===false?'err':'ok')}
+function api(m,u,b){return fetch(u,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined}).then(function(r){return r.json().catch(function(){return{}}).then(function(d){if(!r.ok)throw new Error(d.error||'Request failed.');return d})})}
+function h(t,a){var e=document.createElement(t);Object.keys(a||{}).forEach(function(k){e[k]=a[k]});for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;e.append.apply(e,[].concat(c))}return e}
+function field(o,k,l,tag,rows){var id='f'+Math.random().toString(36).slice(2),i=h(tag||'input',{id:id,value:o[k]||''});if(rows)i.rows=rows;i.oninput=function(){o[k]=i.value};return h('div',{},h('label',{htmlFor:id},l),i)}
+function save(){api('PUT','/api/admin/content',C).then(function(){say('Saved. The changes are live on the website.')}).catch(function(e){say(e.message,false)})}
+function saveBtn(){return h('button',{className:'btn',type:'button',onclick:save},'Save changes')}
+function list(key,fields,blank,noun){
+ V.replaceChildren();
+ C[key].forEach(function(it,n){V.append(h('div',{className:'card item'},fields.map(function(f){return field(it,f[0],f[1],f[2],f[2]?3:0)}),h('div',{className:'bar2'},h('button',{className:'btn alt sm',type:'button',onclick:function(){C[key].splice(n,1);list(key,fields,blank,noun)}},'Remove '+noun))))});
+ V.append(h('div',{className:'bar2'},h('button',{className:'btn alt',type:'button',onclick:function(){C[key].push(Object.assign({},blank));list(key,fields,blank,noun)}},'Add '+noun),saveBtn()))}
+var LAB={contact:'Contact message',feedback:'Feedback',tour:'Campus tour request',admission:'Admission application'};
+function msgs(){
+ api('GET','/api/admin/subs').then(function(d){
+  var f=h('select',{},h('option',{value:''},'All types'),Object.keys(LAB).map(function(k){return h('option',{value:k},LAB[k])})),box=h('div');
+  function draw(){box.replaceChildren();var a=d.subs.filter(function(s){return!f.value||s.type===f.value});if(!a.length)box.append(h('p',{},'Nothing here yet.'));
+   a.forEach(function(s){box.append(h('div',{className:'card item'},h('h3',{},LAB[s.type]+' - '+new Date(s.created).toLocaleString()),h('dl',{className:'kv'},Object.keys(s.data).map(function(k){return h('div',{},h('dt',{},k.replace(/_/g,' ')),h('dd',{},s.data[k]))})),h('button',{className:'btn alt sm',type:'button',onclick:function(){if(confirm('Delete this entry?'))api('DELETE','/api/admin/subs/'+s.id).then(function(){d.subs=d.subs.filter(function(x){return x!==s});draw()})}},'Delete')))})}
+  f.onchange=draw;V.replaceChildren(h('div',{className:'item'},h('label',{htmlFor:'flt'},'Show'),f),box);f.id='flt';draw()}).catch(function(e){say(e.message,false)})}
+function pages(){V.replaceChildren();Object.keys(C.pages).forEach(function(k){var p=C.pages[k];V.append(h('div',{className:'card item'},h('h3',{},'Page: '+k),field(p,'title','Title'),field(p,'intro','Intro text','textarea',3),field(p,'body','Extra content (HTML allowed)','textarea',8)))});V.append(saveBtn())}
+function settings(){V.replaceChildren();var s=C.settings;V.append(h('div',{className:'card item'},field(s,'phone','Phone number shown on the site'),field(s,'whatsapp','WhatsApp number (digits only, with country code, no +)'),field(s,'email','Contact email (optional)'),field(s,'address','Campus address (optional)')),saveBtn())}
+function users(){api('GET','/api/admin/users').then(function(d){V.replaceChildren();d.users.forEach(function(u){V.append(h('div',{className:'card item'},h('h3',{},u.name),h('p',{},u.role+' - '+u.username+' - joined '+new Date(u.created).toLocaleDateString()),u.role==='admin'?null:h('button',{className:'btn alt sm',type:'button',onclick:function(){if(confirm('Delete this account?'))api('DELETE','/api/admin/users/'+u.id).then(users)}},'Delete account')))})}).catch(function(e){say(e.message,false)})}
+function pw(){V.replaceChildren();var o={p:''},i=field(o,'p','New admin password (at least 8 characters)');i.querySelector('input').type='password';V.append(h('div',{className:'card item'},i,h('button',{className:'btn',type:'button',onclick:function(){api('POST','/api/admin/password',{password:o.p}).then(function(){say('Password changed.');o.p='';i.querySelector('input').value=''}).catch(function(e){say(e.message,false)})}},'Change password')))}
+var tabs=[['Messages',msgs],['Slider',function(){list('slides',[['title','Heading'],['text','Text','textarea'],['btn','Button text'],['link','Button link (for example courses.html)']],{title:'',text:'',btn:'',link:'index.html'},'slide')}],['Pages',pages],['Courses',function(){list('courses',[['dept','Department'],['name','Program name'],['level','Level'],['duration','Duration']],{dept:'',name:'',level:'',duration:''},'program')}],['Settings',settings],['Users',users],['Password',pw]];
+tabs.forEach(function(t,n){var b=h('button',{className:'btn alt',type:'button',onclick:function(){[].forEach.call(T.children,function(x){x.className='btn alt'});b.className='btn';M.textContent='';t[1]()}},t[0]);T.append(b)});
+T.children[0].click()};
+</script>
+</main>
+<div id="ftr"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback | U-TECH</title>
+<meta name="description" content="U-TECH, University of Technology Culture and Health Sciences.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="feedback">
+<div id="hdr"></div>
+<main>
+<div class="page-head"><div class="wrap"><h1 id="pt"></h1><p id="pi"></p></div></div><section><div class="wrap"><div id="cms"></div><form data-form="feedback" data-ok="Thank you. Your feedback was sent."><div class="row"><div><label for="name">Name (optional)</label><input id="name" name="name" type="text" autocomplete="name"></div><div><label for="email">Email (optional)</label><input id="email" name="email" type="email"></div></div><div><label for="topic">Feedback about</label><select id="topic" name="topic" required><option value="">Select</option><option value="Website">Website</option><option value="Admissions">Admissions</option><option value="Courses">Courses</option><option value="Campus visit">Campus visit</option><option value="Other">Other</option></select></div><div><label for="rating">Rating</label><select id="rating" name="rating" required><option value="">Select</option><option value="5 - Excellent">5 - Excellent</option><option value="4 - Good">4 - Good</option><option value="3 - Average">3 - Average</option><option value="2 - Poor">2 - Poor</option><option value="1 - Very poor">1 - Very poor</option></select></div><div><label for="feedback">Your feedback</label><textarea id="feedback" name="feedback" required></textarea></div><button class="btn" type="submit">Send feedback</button><p class="msg" role="status"></p></form></div></section>
+</main>
+<div id="ftr"></div>
+<script src="app.js"></script>
+</body>
+</html>

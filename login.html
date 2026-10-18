@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | U-TECH</title>
+<meta name="description" content="U-TECH, University of Technology Culture and Health Sciences.">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+<div id="hdr"></div>
+<main>
+<div class="page-head"><div class="wrap"><h1 id="pt"></h1><p id="pi"></p></div></div><section><div class="wrap"><form data-form="login" data-api="/api/login"><label for="role">I am a</label><select id="role" name="role" required><option value="student">Student</option><option value="teacher">Teacher</option><option value="admin">Admin</option></select><label for="username">Username (admins: email)</label><input id="username" name="username" required autocomplete="username" autocapitalize="none"><label for="password">Password</label><input id="password" name="password" type="password" required autocomplete="current-password"><button class="btn" type="submit">Log in</button><p class="msg" role="status"></p></form><p>New student or teacher? <a href="signup.html">Create an account</a>.</p></div></section>
+</main>
+<div id="ftr"></div>
+<script src="app.js"></script>
+</body>
+</html>
